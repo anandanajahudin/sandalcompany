@@ -107,7 +107,7 @@ class LoginController extends Controller
             }
         }
 
-        return redirect()->route('login')->withSuccess('You are not allowed to access');
+        return redirect()->route('login')->with(['error' => 'Your email is not registered']);
     }
 
     public function logout(Request $request)
