@@ -6,7 +6,7 @@
     <div class="offcanvas-body p-4">
         <ul class="navbar-nav justify-content-end flex-grow-1">
             <li class="nav-item mt-3">
-                <a class="nav-link fs-3 text-dark active" aria-current="page" href="#">Beranda</a>
+                <a class="nav-link fs-3 text-dark active" aria-current="page" href="{{ route('frontend') }}">Beranda</a>
             </li>
             <li class="nav-item mt-3">
                 <a class="nav-link fs-3 text-dark" href="{{ route('catalog') }}">Produk</a>
