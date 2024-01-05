@@ -75,6 +75,7 @@
             </a>
         </li>
 
+        @if (Auth::user()->user_type != 'customer')
         <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
             <span class="hide-menu">Profile</span>
@@ -87,5 +88,6 @@
                 <span class="hide-menu">Testimonial</span>
             </a>
         </li>
+        @endif
     </ul>
 </nav>

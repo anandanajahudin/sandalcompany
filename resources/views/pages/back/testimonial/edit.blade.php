@@ -16,6 +16,29 @@
                         @method('PUT')
 
                         <div class="form-group mb-2">
+                            <label for="order" class="form-label">Order</label>
+                            <select class="form-select" name="order" id="order" required>
+                                @if ($testimonial->order_id == null)
+                                    <option selected disabled>Pilih order...</option>
+                                @else
+                                    <option value="{{ $testimonial->order->id }}" selected>
+                                        ORD-{{ $testimonial->order->id }}
+                                    </option>
+                                @endif
+
+                                @foreach ($orders as $order)
+                                    <option value="{{ $order->id }}">ORD-{{ $order->id }}</option>
+                                @endforeach
+                            </select>
+
+                            @error('order')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-2">
                             <label for="nama" class="form-label">Nama</label>
                             <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
                                 value="{{ $testimonial->nama }}" required>

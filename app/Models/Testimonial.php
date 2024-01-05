@@ -12,8 +12,14 @@ class Testimonial extends Model
 
     protected $table = 'testimonials';
     protected $fillable = [
+        'order_id',
         'nama',
         'nilai',
         'testimoni',
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'id');
+    }
 }

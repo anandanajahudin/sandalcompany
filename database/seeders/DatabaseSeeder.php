@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             ProductCategorySeeder::class,
             ProductSeeder::class,
-            TestimonialSeeder::class,
+            // TestimonialSeeder::class,
         ]);
     }
 }

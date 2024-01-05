@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModallLabel" aria-hidden="true">
+<div class="modal fade" id="addTestimoniModal{{ $order->id }}" tabindex="-1" aria-labelledby="addModallLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,12 +12,8 @@
 
                     <div class="form-group mb-2">
                         <label for="order" class="form-label">Order</label>
-                        <select class="form-select" name="order" id="order" required>
-                            <option selected disabled>Pilih order...</option>
-                            @foreach ($orders as $order)
-                                <option value="{{ $order->id }}">ORD-{{ $order->id }}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" value="ORD-{{ $order->id }}" required readonly>
+                        <input type="hidden" name="order" value="{{ $order->id }}" required readonly>
 
                         @error('order')
                             <div class="alert alert-danger">
@@ -29,7 +25,7 @@
                     <div class="form-group mb-2">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
-                            value="{{ old('nama') }}" required>
+                            value="{{ $order->customer->nama }}" required readonly>
 
                         @error('nama')
                             <div class="alert alert-danger">

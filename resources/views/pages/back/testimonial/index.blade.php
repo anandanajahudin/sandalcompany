@@ -27,6 +27,9 @@
                                         <h6 class="fw-semibold mb-0">No.</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Order</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Nama</h6>
                                     </th>
                                     <th class="border-bottom-0">
@@ -45,6 +48,11 @@
                                     <tr>
                                         <td class="border-bottom-0">
                                             {{ $loop->iteration }}
+                                        </td>
+                                        <td class="border-bottom-0">
+                                            <a href="{{ route('order.show', $testimonial->order_id) }}">
+                                                ORD-{{ $testimonial->order_id }}
+                                            </a>
                                         </td>
                                         <td class="border-bottom-0">
                                             {{ $testimonial->nama }}

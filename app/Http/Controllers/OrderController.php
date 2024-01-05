@@ -22,7 +22,6 @@ class OrderController extends Controller
 
         } else {
             $orders = Order::orderBy('id', 'DESC')->get();
-
         }
 
         return view('pages.back.order.index',

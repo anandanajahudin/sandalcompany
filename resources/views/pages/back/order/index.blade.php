@@ -30,6 +30,9 @@
                                         <h6 class="fw-semibold mb-0">Tanggal Order</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Kode</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Customer</h6>
                                     </th>
                                     <th class="border-bottom-0">
@@ -51,6 +54,9 @@
                                         </td>
                                         <td class="border-bottom-0">
                                             {{ date('d M Y h:i:s', strtotime($order->created_at)) }}
+                                        </td>
+                                        <td class="border-bottom-0">
+                                            ORD-{{ $order->id }}
                                         </td>
                                         <td class="border-bottom-0">
                                             {{ $order->customer->nama }}
@@ -76,6 +82,39 @@
                                                     <i class="ti ti-arrow-right"></i>
                                                 </a>
 
+                                                @php
+                                                    $testimoniCheck = \App\Models\Testimonial::where('order_id', $order->id)->exists();
+                                                    $orderCheck = \App\Models\Order::where('customer_id', Auth::user()->id)->exists();
+
+                                                    if ($testimoniCheck) {
+                                                        $testimonial = \App\Models\Testimonial::where('order_id', $order->id)->first();
+                                                    }
+                                                @endphp
+
+                                                @if (Auth::user()->user_type == 'customer')
+                                                    @if ($orderCheck)
+                                                        @include('pages.back.order.partials.testimonial.create')
+
+                                                        @if ($testimoniCheck)
+                                                            @include('pages.back.order.partials.testimonial.view')
+                                                        @endif
+                                                    @endif
+
+                                                    @if ($order->status == 3)
+                                                        @if ($testimoniCheck)
+                                                            <button data-bs-toggle="modal" data-bs-target="#viewTestimoniModal{{ $order->id }}"
+                                                                class="btn btn-warning btn-sm">
+                                                                <i class="ti ti-message"></i>
+                                                            </button>
+                                                        @else
+                                                            <button data-bs-toggle="modal" data-bs-target="#addTestimoniModal{{ $order->id }}"
+                                                                class="btn btn-warning btn-sm">
+                                                                <i class="ti ti-message"></i>
+                                                            </button>
+                                                        @endif
+                                                    @endif
+                                                @endif
+
                                                 {{-- @hasAnyRole(['employee'])
                                                     <a href="{{ route('order.edit', $order->id) }}"
                                                         class="btn btn-warning btn-sm"><i class="ti ti-pencil"></i></a>
@@ -99,5 +138,4 @@
             </div>
         </div>
     </div>
-
 @endsection
