@@ -35,7 +35,7 @@ class EmployeeController extends Controller
             'department' => 'required',
             'telp' => 'required',
             'alamat' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:1024',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:1024',
         ]);
 
         $user = User::create([
@@ -44,9 +44,11 @@ class EmployeeController extends Controller
             'nama' => $request->nama,
             'telp' => $request->telp,
             'alamat' => $request->alamat,
+            'user_type' => 'employee',
         ]);
 
         $employee = Employee::create([
+            'user_id' => $user->id,
             'nip' => $request->nip,
             'department_id' => $request->department,
         ]);

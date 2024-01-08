@@ -29,7 +29,7 @@
                             <h6 class="fw-semibold mb-0">Nama</h6>
                         </div>
                         <div class="col-lg-9 mb-3">
-                            {{ $employee->nama }}
+                            {{ $employee->user->nama }}
                         </div>
 
                         <div class="col-lg-3 mb-3">
@@ -43,14 +43,14 @@
                             <h6 class="fw-semibold mb-0">Telp</h6>
                         </div>
                         <div class="col-lg-9 mb-3">
-                            {{ $employee->telp }}
+                            {{ $employee->user->telp }}
                         </div>
 
                         <div class="col-lg-3 mb-3">
                             <h6 class="fw-semibold mb-0">Alamat</h6>
                         </div>
                         <div class="col-lg-9 mb-3">
-                            {{ $employee->alamat }}
+                            {{ $employee->user->alamat }}
                         </div>
 
                         <div class="col-lg-3 mb-3">

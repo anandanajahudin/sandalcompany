@@ -70,10 +70,32 @@
                         @enderror
                     </div>
 
+                    <div class="form-group mb-2">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                        @error('email')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" value="{{ old('password') }}" required>
+
+                        @error('password')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
                     <div class="form-group">
                         <label for="image">Gambar KTP</label>
                         <input class="form-control border-primary @error('image') is-invalid @enderror" type="file"
-                            name="image" id="image" placeholder="file" required>
+                            name="image" id="image" placeholder="file">
                         <small class="text-warning">Max File Size under 1MB</small>
                         &nbsp;|&nbsp;<small>Only .jpg, .png, .jpeg, .svg, .webp File</small>
                         @error('image')

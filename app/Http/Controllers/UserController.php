@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -40,6 +41,7 @@ class UserController extends Controller
             'alamat' => 'required',
             'kota' => 'required',
             'kodepos' => 'required',
+            'user_type' => 'nullable',
         ]);
 
         //save
@@ -51,6 +53,7 @@ class UserController extends Controller
             'alamat' => $request->alamat,
             'kota' => $request->kota,
             'kodepos' => $request->kodepos,
+            'user_type' => $request->user_type,
         ]);
 
         //redirect to index

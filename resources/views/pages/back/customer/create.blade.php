@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-7">
                             <div class="form-group mb-2">
                                 <label for="phone" class="form-label">Telp</label>
                                 <input type="number" class="form-control" name="telp" value="{{ old('telp') }}"
@@ -49,27 +49,13 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-5">
                             <div class="form-group mb-2">
                                 <label for="kodepos" class="form-label">Kode Pos</label>
                                 <input type="text" class="form-control" name="kodepos" value="{{ old('kodepos') }}"
                                     required>
 
                                 @error('kodepos')
-                                    <div class="alert alert-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="form-group mb-2">
-                                <label for="no_fax" class="form-label">Fax</label>
-                                <input type="text" class="form-control" name="no_fax" value="{{ old('no_fax') }}"
-                                    required>
-
-                                @error('no_fax')
                                     <div class="alert alert-danger">
                                         {{ $message }}
                                     </div>
@@ -83,6 +69,29 @@
                         <input type="text" class="form-control" name="alamat" value="{{ old('alamat') }}" required>
 
                         @error('alamat')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                        <input type="hidden" class="form-control" name="user_type" value="customer" readonly required>
+
+                        @error('email')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" value="{{ old('password') }}" required>
+
+                        @error('password')
                             <div class="alert alert-danger">
                                 {{ $message }}
                             </div>
